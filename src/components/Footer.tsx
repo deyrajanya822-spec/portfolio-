@@ -90,12 +90,10 @@ export const Footer: React.FC = () => {
                 </li>
                 <li>
                   <a
-                    href="https://greatlakes.edu.in"
-                    target="_blank"
-                    rel="noreferrer"
+                    href="#contact"
                     className="hover:text-emerald-400 transition-colors inline-block hover:translate-x-1 duration-200"
                   >
-                    Great Lakes Gurgaon
+                    Contact &amp; Connect
                   </a>
                 </li>
               </ul>
@@ -108,14 +106,13 @@ export const Footer: React.FC = () => {
               </span>
               <div className="space-y-2 text-sm sm:text-base font-outfit text-zinc-300">
                 <p className="font-syne font-bold text-white hover:text-pink-400 transition-colors cursor-pointer">
-                  rajanya.dey@greatlakes.edu.in
+                  deyrajanya822@gmail.com
                 </p>
                 <p className="text-zinc-400 font-mono text-xs">
-                  Gurgaon & Vadodara, India
+                  India
                 </p>
                 <p className="text-zinc-400 text-xs leading-relaxed pt-1">
-                  PGDM 2024–2026 Cohort<br />
-                  Great Lakes Institute of Management
+                  General Management &amp; Market Research Specialist
                 </p>
               </div>
             </div>
@@ -249,7 +246,7 @@ export const Footer: React.FC = () => {
               <span>•</span>
               <a href="#services" className="hover:text-zinc-300 transition-colors">SERVICES</a>
               <span>•</span>
-              <a href="#projects" className="hover:text-zinc-300 transition-colors">CASE STUDIES</a>
+              <a href="#projects" className="hover:text-zinc-300 transition-colors">PROJECTS &amp; WORK</a>
             </div>
           </div>
         </div>

@@ -2,16 +2,30 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { WavyLines } from './WavyLines';
 import { SYDNEY_PROFILE } from '../../data/sydneyData';
-import { Phone, Mail, Linkedin, Copy, Check, Send, ArrowUpRight, Heart, Sparkles } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  Linkedin,
+  Copy,
+  Check,
+  Send,
+  ArrowUpRight,
+  Heart,
+  Sparkles,
+  Download,
+  FileText,
+  Languages
+} from 'lucide-react';
 
 export const SydneyContact: React.FC = () => {
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: 'General Management & Strategy',
+    subject: 'Strategy & General Management Opportunities',
     message: ''
   });
 
@@ -27,6 +41,55 @@ export const SydneyContact: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
+  const handleDownloadCV = () => {
+    const cvContent = `=====================================================
+RAJANYA DEY — STRATEGY & BUSINESS PORTFOLIO
+Management & Market Research Specialist
+Open to strategic & management roles
+Phone: ${SYDNEY_PROFILE.phone} | Email: ${SYDNEY_PROFILE.email}
+LinkedIn: ${SYDNEY_PROFILE.linkedin}
+=====================================================
+
+EXECUTIVE SUMMARY
+Business-oriented management professional with cross-functional expertise across
+market research, business analytics, Go-To-Market (GTM) strategy, and digital
+transformation. Proven track record executing 9-city pan-India field research,
+configuring enterprise analytics (GA4/GTM/GSC) to achieve 100/100 SEO, and
+architecting ₹7.8M creator marketing strategy.
+
+RECOGNITION & HONORS
+• All-India Rank 2 (AIR 2) — "Minutes Marvels" Micro-Writing Competition, IIM Calcutta (2025)
+• Member, Alumni Committee (2026)
+• Flagship Event Coordinator — Crest 2025
+• McKinsey Forward Program Participant — McKinsey & Company (2025)
+
+EXPERIENCE & PROJECTS
+1. Rockwell — Influencer & GTM Strategy (₹7.8M Campaign)
+2. Campa CSD — Brand Strategy, Research & Retail POS (Reliance Consumer Products)
+3. Myntra — Marketing Decision-Support System (5 SBUs × 7 Channels)
+4. Brewtopia — Digital Transformation & Analytics (100/100 SEO, GA4, GTM)
+5. Lotus Chocolate — Brand Strategy & AI TVC (Storyboats)
+6. Toffeeman — Mascot Design & Consumer Psychology
+7. IMS Coaching Institute — Marketing Intern
+
+LANGUAGES
+English • Hindi • Gujarati • Bengali
+`;
+
+    const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'Rajanya_Dey_Resume.txt');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    setDownloadSuccess(true);
+    setTimeout(() => setDownloadSuccess(false), 3000);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -35,29 +98,55 @@ export const SydneyContact: React.FC = () => {
   return (
     <footer id="contact" className="relative py-24 bg-[#FAF7F2] overflow-hidden">
       {/* Background Organic Red Ribbon Curves */}
-      <WavyLines variant="footer" className="bottom-0 left-0 w-full h-full opacity-70" />
+      <WavyLines variant="footer" className="bottom-0 left-0 w-full h-full opacity-70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         {/* Main Content Area */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-          {/* Left: Headline & Contact Blocks */}
+          {/* Left: Headline, One-liner, Download CV & Contact Blocks */}
           <div className="lg:col-span-8 space-y-8">
             <div>
               <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7A141D]/10 text-[#7A141D] text-xs font-mono uppercase tracking-wider mb-4">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Get In Touch</span>
+                <span>Get In Touch &amp; Recruitment</span>
               </span>
+
               <h2 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#1F1D1A] font-normal tracking-tight">
                 Let's connect &amp; <br />
                 <span className="italic text-[#7A141D]">collaborate</span>
               </h2>
+
               <p className="text-base sm:text-lg text-[#5C554D] font-sans mt-4 max-w-xl">
-                Whether you’re looking to revamp social media presence, organize a community event, or produce dynamic media, I’d love to speak with you.
+                Looking to discuss consulting, marketing leadership, analytics, or general management roles? Let’s schedule an introductory discussion.
               </p>
+
+              {/* Prominent Download CV CTA (Change 9) */}
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={handleDownloadCV}
+                  className="px-6 py-3 rounded-full bg-[#7A141D] text-white text-xs font-mono uppercase tracking-wider hover:bg-[#5E0F16] transition-all shadow-md cursor-pointer flex items-center gap-2"
+                >
+                  {downloadSuccess ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-300" />
+                      <span>CV Downloaded Successfully!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-4 h-4" />
+                      <span>Download Official CV</span>
+                    </>
+                  )}
+                </button>
+
+                <span className="text-xs font-mono text-[#7D756C]">
+                  Text &amp; Markdown structured for ATS &amp; verification
+                </span>
+              </div>
             </div>
 
             {/* Direct Contact Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2">
               {/* Phone Card */}
               <div className="p-5 rounded-2xl bg-white border border-[#E0D5C7] shadow-sm flex flex-col justify-between space-y-3">
                 <div className="flex items-center justify-between">
@@ -78,7 +167,7 @@ export const SydneyContact: React.FC = () => {
 
                 <button
                   onClick={handleCopyPhone}
-                  className="inline-flex items-center gap-1.5 text-xs text-[#7A141D] hover:underline font-mono"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#7A141D] hover:underline font-mono cursor-pointer"
                 >
                   {copiedPhone ? (
                     <>
@@ -115,7 +204,7 @@ export const SydneyContact: React.FC = () => {
 
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1.5 text-xs text-[#7A141D] hover:underline font-mono"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#7A141D] hover:underline font-mono cursor-pointer"
                 >
                   {copiedEmail ? (
                     <>
@@ -153,7 +242,25 @@ export const SydneyContact: React.FC = () => {
                 </a>
 
                 <span className="text-xs text-[#7D756C] font-mono">
-                  Connect & View Resume
+                  Connect &amp; View Network
+                </span>
+              </div>
+            </div>
+
+            {/* Languages Bar (Change 10) */}
+            <div className="pt-2">
+              <div className="p-4 rounded-2xl bg-white border border-[#E0D5C7] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                <div className="flex items-center gap-2">
+                  <Languages className="w-4 h-4 text-[#7A141D]" />
+                  <span className="font-semibold text-[#1F1D1A] uppercase tracking-wider">
+                    Languages:
+                  </span>
+                  <span className="text-[#5C554D]">
+                    English • Hindi • Gujarati • Bengali
+                  </span>
+                </div>
+                <span className="text-[11px] text-[#7D756C]">
+                  Pan-India field research, client consulting &amp; regional stakeholder fluency
                 </span>
               </div>
             </div>
@@ -162,7 +269,7 @@ export const SydneyContact: React.FC = () => {
           {/* Right: Availability & Credentials Card */}
           <div className="lg:col-span-4 flex justify-center">
             <div className="relative w-full max-w-sm">
-              <div className="rounded-[3rem] p-8 sm:p-10 shadow-2xl border-2 border-[#7A141D]/30 bg-gradient-to-br from-[#7A141D] to-[#4A0A10] text-white flex flex-col justify-between min-h-[300px]">
+              <div className="rounded-[3rem] p-8 sm:p-10 shadow-2xl border-2 border-[#7A141D]/30 bg-gradient-to-br from-[#7A141D] to-[#4A0A10] text-white flex flex-col justify-between min-h-[340px]">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-[11px] font-mono tracking-widest text-[#FAF7F2] uppercase mb-4">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
@@ -172,18 +279,22 @@ export const SydneyContact: React.FC = () => {
                     Rajanya Dey
                   </h3>
                   <p className="text-xs font-mono text-[#E8DFD5] tracking-wide leading-relaxed">
-                    PGDM '27 • Great Lakes Institute of Management, Gurgaon
+                    General Management &amp; Market Research Specialist
                   </p>
                 </div>
 
                 <div className="pt-6 border-t border-white/20 mt-6 space-y-2 text-xs font-mono text-[#FAF7F2]/80">
                   <div className="flex items-center justify-between">
                     <span>Base</span>
-                    <span className="text-white font-medium">Gurgaon, India</span>
+                    <span className="text-white font-medium">India</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span>Focus</span>
-                    <span className="text-white font-medium">General Management &amp; Strategy</span>
+                    <span>Target Roles</span>
+                    <span className="text-white font-medium text-right">Consulting, Strategy, Analytics</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Timeline</span>
+                    <span className="text-emerald-300 font-medium">Full-Time 2027</span>
                   </div>
                 </div>
               </div>
@@ -212,7 +323,7 @@ export const SydneyContact: React.FC = () => {
               </p>
               <button
                 onClick={() => setFormSubmitted(false)}
-                className="mt-4 px-6 py-2 rounded-full border border-[#7A141D] text-[#7A141D] text-xs font-mono uppercase"
+                className="mt-4 px-6 py-2 rounded-full border border-[#7A141D] text-[#7A141D] text-xs font-mono uppercase cursor-pointer"
               >
                 Send Another Message
               </button>
@@ -224,7 +335,7 @@ export const SydneyContact: React.FC = () => {
                   Send a Direct Message
                 </h4>
                 <span className="text-xs font-mono text-[#7D756C]">
-                  Quick collaboration inquiry
+                  Recruitment &amp; project inquiry
                 </span>
               </div>
 
@@ -236,13 +347,12 @@ export const SydneyContact: React.FC = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g., Alex Parker"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[#DDD1C3] bg-[#FAF7F2] text-[#1F1D1A] text-sm focus:outline-none focus:border-[#7A141D]"
+                    placeholder="e.g. Campus Recruiter / Hiring Manager"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E0D5C7] focus:outline-none focus:border-[#7A141D] bg-[#FAF7F2]/50 text-sm"
                   />
                 </div>
-
                 <div>
                   <label className="block text-xs font-mono uppercase text-[#6B635A] mb-1.5">
                     Your Email
@@ -250,35 +360,49 @@ export const SydneyContact: React.FC = () => {
                   <input
                     type="email"
                     required
-                    placeholder="alex@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[#DDD1C3] bg-[#FAF7F2] text-[#1F1D1A] text-sm focus:outline-none focus:border-[#7A141D]"
+                    placeholder="name@company.com"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E0D5C7] focus:outline-none focus:border-[#7A141D] bg-[#FAF7F2]/50 text-sm"
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs font-mono uppercase text-[#6B635A] mb-1.5">
-                  Project or Collaboration Opportunity
+                  Opportunity Type / Subject
+                </label>
+                <select
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-[#E0D5C7] focus:outline-none focus:border-[#7A141D] bg-[#FAF7F2]/50 text-sm"
+                >
+                  <option value="Consulting & Strategy Roles">Consulting &amp; Strategy Roles</option>
+                  <option value="Business Analytics & Digital">Business Analytics &amp; Digital</option>
+                  <option value="General Management Track">General Management Track</option>
+                  <option value="Marketing Leadership & Brand">Marketing Leadership &amp; Brand</option>
+                  <option value="Direct Campus Placement Inquiry">Direct Campus Placement Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono uppercase text-[#6B635A] mb-1.5">
+                  Message
                 </label>
                 <textarea
+                  rows={4}
                   required
-                  rows={3}
-                  placeholder="Tell Rajanya about your project, full-time opportunity, or strategic inquiry..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#DDD1C3] bg-[#FAF7F2] text-[#1F1D1A] text-sm focus:outline-none focus:border-[#7A141D]"
+                  placeholder="Share details about the role, interview scheduling, or project brief..."
+                  className="w-full px-4 py-3 rounded-xl border border-[#E0D5C7] focus:outline-none focus:border-[#7A141D] bg-[#FAF7F2]/50 text-sm"
                 />
               </div>
 
-              <div className="flex items-center justify-between pt-2">
-                <span className="text-xs text-[#7D756C] font-mono">
-                  Direct inquiry to {SYDNEY_PROFILE.email}
-                </span>
+              <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#7A141D] hover:bg-[#630F17] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-all"
+                  className="px-8 py-3 rounded-full bg-[#7A141D] text-white text-xs font-mono uppercase tracking-wider hover:bg-[#5E0F16] transition-all shadow-md cursor-pointer flex items-center gap-2"
                 >
                   <span>Send Message</span>
                   <Send className="w-3.5 h-3.5" />
@@ -286,19 +410,6 @@ export const SydneyContact: React.FC = () => {
               </div>
             </form>
           )}
-        </div>
-
-        {/* Bottom copyright / credit bar */}
-        <div className="mt-16 pt-8 border-t border-[#E8DFD5] flex flex-col sm:flex-row items-center justify-between text-xs text-[#7D756C] font-mono gap-4">
-          <div>
-            © {new Date().getFullYear()} Rajanya Dey • Portfolio • GLIM Gurgaon
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="#about" className="hover:text-[#7A141D] transition-colors">About</a>
-            <a href="#experience" className="hover:text-[#7A141D] transition-colors">Experience</a>
-            <a href="#case-studies" className="hover:text-[#7A141D] transition-colors">Case Studies</a>
-            <a href="#contact" className="hover:text-[#7A141D] transition-colors">Contact</a>
-          </div>
         </div>
       </div>
     </footer>

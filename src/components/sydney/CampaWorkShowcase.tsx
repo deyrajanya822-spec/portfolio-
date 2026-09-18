@@ -104,14 +104,14 @@ export const CampaWorkShowcase: React.FC = () => {
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
                 <div className="flex items-center gap-2">
                   <span className="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-[11px] font-mono font-bold border border-red-500/30 uppercase">
-                    Client Case Study • Summer 2025
+                    Internship Deliverable • Summer 2025
                   </span>
                   <span className="text-xs font-mono text-stone-400">
-                    Storyboats, Gurgaon × Great Lakes Institute of Management
+                    Storyboats × Consumer Research
                   </span>
                 </div>
                 <div className="text-xs font-mono text-stone-400">
-                  Author: <strong className="text-white">Rajanya</strong> (PGDM 2027)
+                  Author: <strong className="text-white">Rajanya</strong>
                 </div>
               </div>
 

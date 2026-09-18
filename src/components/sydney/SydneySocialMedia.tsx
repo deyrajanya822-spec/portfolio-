@@ -8,7 +8,7 @@ import { VideoDemonstrationModal } from './VideoDemonstrationModal';
 import { getVideoBlob } from '../../utils/videoStorage';
 import { 
   ArrowRight, BarChart3, TrendingUp, Layers, Sparkles, CheckCircle2, Play, ShieldCheck,
-  Briefcase, Target, Scale, Compass, Check
+  Briefcase, Target, Scale, Compass, Check, GraduationCap, BookOpen
 } from 'lucide-react';
 
 export const SydneySocialMedia: React.FC = () => {
@@ -61,14 +61,14 @@ export const SydneySocialMedia: React.FC = () => {
         {/* Section Title with Consulting Lens */}
         <div className="text-center max-w-4xl mx-auto mb-12">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7A141D]/10 text-[#7A141D] text-xs font-mono uppercase tracking-wider mb-3">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Management Consulting &amp; Strategic Advisory Portfolio</span>
+            <GraduationCap className="w-3.5 h-3.5" />
+            <span>Academic Projects &amp; Capstones</span>
           </span>
           <h2 className="text-4xl sm:text-6xl font-serif text-[#1F1D1A] font-normal tracking-tight">
-            Featured Case <span className="italic text-[#7A141D]">Engagements</span>
+            Projects and <span className="italic text-[#7A141D]">Capstones</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#5C554D] font-sans mt-3 leading-relaxed max-w-2xl mx-auto">
-            Hypothesis-driven engagements evaluated through the lens of management consulting: Enterprise Margin Optimization, Customer Experience (CX) Strategy, Operations Re-Engineering, and Behavioral Decision Science.
+          <p className="text-sm sm:text-base text-[#5C554D] font-sans mt-3 leading-relaxed max-w-3xl mx-auto">
+            Applied coursework, consulting capstones, and empirical research executed during the current semester — spanning Enterprise Decision Support, Digital Transformation, Applied AI Automation, and Behavioral Decision Science.
           </p>
 
           {/* Scannable 4-Project Index */}
@@ -82,12 +82,12 @@ export const SydneySocialMedia: React.FC = () => {
                 <span className="font-bold text-[#7A141D] group-hover:text-white">0{idx + 1}</span>
                 <span className="font-sans font-medium text-[11px] sm:text-xs">
                   {idx === 0
-                    ? '01 Enterprise Margin Strategy (Myntra)'
+                    ? '01 Marketing Decision-Support (Myntra)'
                     : idx === 1
-                    ? '02 CX Strategy & Flagship (Brewtopia)'
+                    ? '02 Digital Transformation & CX (Brewtopia)'
                     : idx === 2
-                    ? '03 Operations & Applied AI (Co-Pilot)'
-                    : '04 Behavioral Economics & Risk (GLIM)'}
+                    ? '03 Operations Automation & Applied AI (Co-Pilot)'
+                    : '04 Behavioral Economics & Risk'}
                 </span>
               </a>
             ))}
@@ -100,11 +100,11 @@ export const SydneySocialMedia: React.FC = () => {
             <div className="flex items-center gap-2">
               <Compass className="w-4 h-4 text-[#7A141D]" />
               <span className="text-xs font-mono uppercase tracking-wider text-[#1F1D1A] font-bold">
-                Executive Capabilities &amp; Practice Area Alignment
+                Academic Disciplines
               </span>
             </div>
             <span className="text-[11px] font-mono text-[#7D756C] hidden sm:inline-block">
-              Structured MECE Advisory Framework
+              Coursework &amp; Empirical Research Frameworks
             </span>
           </div>
 
@@ -112,18 +112,18 @@ export const SydneySocialMedia: React.FC = () => {
             {[
               {
                 number: '01',
-                pillar: 'Corporate Strategy & Profitability',
-                client: 'Myntra (Flipkart / Walmart)',
-                diagnostic: 'Blended ROAS masking organic demand cannibalization & SBU margin leakage.',
+                pillar: 'Marketing Analytics & Decision Support',
+                client: 'Myntra — Academic Capstone',
+                diagnostic: 'Blended ROAS masking organic demand cannibalization & SBU margin leakage across 5 SBUs.',
                 methodology: 'Star Schema data decomposition & synthetic holdout incrementality.',
-                metric: '₹2,300L+ Capital Allocation • 3.8x ROAS',
+                metric: '5 SBUs × 7 Channels • Star Schema',
                 anchor: '#case-myntra',
                 icon: <BarChart3 className="w-4 h-4 text-[#7A141D]" />
               },
               {
                 number: '02',
-                pillar: 'Customer Experience (CX) & Brand',
-                client: 'Brewtopia Handcrafted Atelier',
+                pillar: 'Digital Transformation & Analytics',
+                client: 'Brewtopia — D2C Atelier Project',
                 diagnostic: 'Artisanal craft pedigree diluted in generic digital storefronts, eroding pricing power.',
                 methodology: 'Tactile digital ceremony ("Living Cup Builder") + GA4 journey telemetry.',
                 metric: '100/100 Core Web Vitals & SEO',
@@ -132,7 +132,7 @@ export const SydneySocialMedia: React.FC = () => {
               },
               {
                 number: '03',
-                pillar: 'Operations & Applied AI',
+                pillar: 'Operations Automation & Applied AI',
                 client: 'Autonomous Placement Co-Pilot',
                 diagnostic: 'Severe operational latency & manual transcription in high-volume talent matching.',
                 methodology: 'Autonomous multi-agent DAG (n8n) + isolated vector RAG chunking.',
@@ -143,7 +143,7 @@ export const SydneySocialMedia: React.FC = () => {
               {
                 number: '04',
                 pillar: 'Behavioral Economics & Decision Science',
-                client: 'GLIM Empirical Trust Model',
+                client: 'Empirical Trust Model',
                 diagnostic: 'Manufactured 5-star review inflation inducing consumer risk paralysis & cart abandonment.',
                 methodology: 'Mixed-methods Grounded Theory (N=10) & SPSS moderated regression (R²=.410).',
                 metric: 'r = .804 (p < .001) Issue Tolerability',
@@ -159,7 +159,7 @@ export const SydneySocialMedia: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-[10px] font-mono font-bold text-[#7A141D] bg-[#7A141D]/10 px-2 py-0.5 rounded">
-                      PILLAR {card.number}
+                      PROJECT {card.number} • SEMESTER
                     </span>
                     <div className="p-1.5 rounded-lg bg-[#FAF7F2] group-hover:scale-110 transition-transform">
                       {card.icon}
@@ -194,7 +194,7 @@ export const SydneySocialMedia: React.FC = () => {
           </div>
         </div>
 
-        {/* Case Studies List */}
+        {/* Projects List */}
         <div className="space-y-24">
           {SOCIAL_CASE_STUDIES.map((study, idx) => (
             <div
@@ -202,11 +202,11 @@ export const SydneySocialMedia: React.FC = () => {
               id={study.id}
               className="scroll-mt-24 rounded-[2.8rem] bg-white border border-[#E0D5C7] p-8 sm:p-12 lg:p-14 shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Case Study Header */}
+              {/* Project Header */}
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#F0EAE1]">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-widest text-[#7A141D] font-semibold">
-                    ENGAGEMENT 0{idx + 1} • {study.role}
+                    COLLEGE PROJECT 0{idx + 1} • CURRENT SEMESTER • {study.role}
                   </span>
                   <h3 className="text-2xl sm:text-4xl font-serif text-[#1F1D1A] font-medium mt-1">
                     {study.organization}
@@ -477,7 +477,7 @@ export const SydneySocialMedia: React.FC = () => {
                           Empirical Findings: SPSS Econometric Model &amp; Grounded Theory
                         </h4>
                         <span className="text-[11px] font-mono text-[#DCA28A]">
-                          GLIM Consumer Behaviour • N=15 SPSS Statistical Dataset &amp; 10 Qualitative Participant Audits
+                          Consumer Behaviour • N=15 SPSS Statistical Dataset &amp; 10 Qualitative Participant Audits
                         </span>
                       </div>
                     </div>
@@ -553,7 +553,7 @@ export const SydneySocialMedia: React.FC = () => {
               <div className="pt-6 border-t border-[#F0EAE1] grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#FAF7F2] p-6 sm:p-7 rounded-2xl">
                 <div className="space-y-1">
                   <h4 className="text-xs font-mono uppercase tracking-wider text-[#7D756C] font-semibold">
-                    Strategic Mandate &amp; Problem Statement
+                    Academic Mandate &amp; Problem Statement
                   </h4>
                   <p className="text-sm sm:text-base font-serif text-[#1F1D1A] font-medium leading-relaxed">
                     {study.goal}
@@ -562,7 +562,7 @@ export const SydneySocialMedia: React.FC = () => {
 
                 <div className="space-y-1">
                   <h4 className="text-xs font-mono uppercase tracking-wider text-[#7A141D] font-semibold">
-                    Quantified Commercial Value &amp; Governance
+                    Evaluated Strategic Impact &amp; Key Outcomes
                   </h4>
                   <p className="text-sm sm:text-base font-serif text-[#7A141D] font-bold leading-relaxed">
                     {study.results}

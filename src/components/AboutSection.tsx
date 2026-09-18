@@ -219,10 +219,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
             className="max-w-2xl space-y-6"
           >
             <p className="font-outfit text-base sm:text-lg md:text-xl text-zinc-300 leading-relaxed font-normal">
-              I am a <strong className="text-white">Brand Strategist & Creative Researcher</strong> pursuing my PGDM at Great Lakes Institute of Management, Gurgaon. With a foundation in Business Administration and a passion for consumer psychology, I blend rigorous market insights with compelling storytelling to construct resonant brand positions.
+              I am a <strong className="text-white">Brand Strategist &amp; Creative Researcher</strong>. With a foundation in Business Administration and a passion for consumer psychology, I blend rigorous market insights with compelling storytelling to construct resonant brand positions.
             </p>
             <p className="font-outfit text-sm sm:text-base text-zinc-400 leading-relaxed">
-              From reducing campaign iteration cycles by 30% through AI-assisted script prototyping at Storyboats to analyzing brand white-spaces for organizations like IMS Learning and academic case studies, I specialize in transforming consumer data into memorable brand equity.
+              From reducing campaign iteration cycles by 30% through AI-assisted script prototyping at Storyboats to analyzing brand white-spaces for organizations like IMS Coaching Institute and academic research projects, I specialize in transforming consumer data into memorable brand equity.
             </p>
 
             <div className="pt-4 flex justify-center">

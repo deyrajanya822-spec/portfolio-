@@ -88,6 +88,16 @@ async function startServer() {
       return res.json({ exists: false, url: null });
     }
 
+    // Lotus Commercial check
+    if (videoConfig.lotusCommercial?.url) {
+      return res.json({
+        exists: true,
+        url: videoConfig.lotusCommercial.url,
+        filename: videoConfig.lotusCommercial.filename || 'lotus-high5-commercial.mp4',
+        isExternal: !videoConfig.lotusCommercial.url.startsWith('/')
+      });
+    }
+
     const videoFiles = ['lotus-high5-commercial.mp4', 'lotus-high5.mp4', 'commercial.mp4'];
     for (const file of videoFiles) {
       const filePath = path.join(publicDir, file);
@@ -171,7 +181,7 @@ async function startServer() {
           const key = requestedId === 'placement-copilot' ? 'placementCopilot' : 'lotusCommercial';
           config[key] = {
             url: `/${filename}`,
-            title: 'Autonomous Placement Co-Pilot & ATS RAG Engine',
+            title: key === 'placementCopilot' ? 'Autonomous Placement Co-Pilot & ATS RAG Engine' : 'Lotus High 5 — Some Fights End Better',
             filename,
             isPersisted: true,
             size: stats.size,

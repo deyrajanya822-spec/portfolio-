@@ -44,7 +44,7 @@ export const CampaModal: React.FC<CampaModalProps> = ({ isOpen, onClose }) => {
                   </span>
                   <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-red-500/40" />
                   <span className="hidden sm:inline-block text-[11px] font-mono text-stone-400">
-                    Storyboats × Campa CSD • Great Lakes GLIM
+                    Storyboats × Campa CSD
                   </span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-serif text-white font-normal tracking-tight">

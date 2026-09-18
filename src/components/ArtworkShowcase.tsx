@@ -37,7 +37,7 @@ export const ArtworkShowcase: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 text-pink-400 text-xs font-mono tracking-widest uppercase mb-2">
               <Sparkles className="w-4 h-4" />
-              <span>RECENT WORK & DATA-BACKED CASE STUDIES</span>
+              <span>RECENT WORK &amp; INTERNSHIP DELIVERABLES</span>
             </div>
             <h2 className="font-syne font-black text-3xl sm:text-5xl text-white uppercase tracking-tight">
               RECENT PROJECTS & STUDIES

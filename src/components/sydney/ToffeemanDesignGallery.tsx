@@ -16,6 +16,7 @@ export interface DesignVariant {
   badge: string;
   svgVariant: string;
   filenameHint: string;
+  imageSrc?: string;
   palette: string[];
   keyFeatures: string[];
   description: string;
@@ -30,7 +31,8 @@ export const CHARACTER_VARIANTS: DesignVariant[] = [
     role: 'Primary Confectionery Mascot',
     badge: '3D Flagship',
     svgVariant: 'gentleman',
-    filenameHint: 'Gemini_Generated_Image_rpcf8qrpcf8qrpcf.png',
+    filenameHint: 'pose_standard',
+    imageSrc: '/toffeeman/pose_standard.png',
     palette: ['#991B1B', '#F59E0B', '#B45309', '#FFFFFF'],
     keyFeatures: [
       'Crimson velvet top hat with golden embroidered ribbon ("TOFFEEMAN")',
@@ -50,7 +52,8 @@ export const CHARACTER_VARIANTS: DesignVariant[] = [
     role: 'Culinary Heritage & Ingredient Integrity',
     badge: 'Master Chef',
     svgVariant: 'chef_artisan',
-    filenameHint: 'Screenshot 2026-04-05 235155.png',
+    filenameHint: 'action_cooking_baking',
+    imageSrc: '/toffeeman/action_cooking_baking.png',
     palette: ['#92400E', '#F59E0B', '#F9FAFB', '#78350F'],
     keyFeatures: [
       'Sculpted caramel pompadour hair and full groomed beard/mustache',
@@ -69,7 +72,8 @@ export const CHARACTER_VARIANTS: DesignVariant[] = [
     role: 'Snack Pack & Portable Format',
     badge: 'Almond Crunch',
     svgVariant: 'almond_mascot',
-    filenameHint: 'Screenshot 2026-04-06 002756.png',
+    filenameHint: 'pose_posing',
+    imageSrc: '/toffeeman/pose_posing.png',
     palette: ['#D97706', '#78350F', '#FEF3C7', '#FFFFFF'],
     keyFeatures: [
       'Smooth almond-shaped silhouette with high-gloss mirror glaze',
@@ -88,7 +92,8 @@ export const CHARACTER_VARIANTS: DesignVariant[] = [
     role: 'Lifestyle & Everyday Snacking',
     badge: 'Wafer Crisps',
     svgVariant: 'waffle_companion',
-    filenameHint: 'Screenshot 2026-04-06 081602.png',
+    filenameHint: 'action_standing_waving',
+    imageSrc: '/toffeeman/action_standing_waving.png',
     palette: ['#0284C7', '#15803D', '#FDE68A', '#D4D4D8'],
     keyFeatures: [
       'Embossed wafer grid texture with golden toasted coloration',
@@ -163,6 +168,7 @@ export const ToffeemanDesignGallery: React.FC = () => {
         return url as string;
       }
     }
+    if (variant.imageSrc) return variant.imageSrc;
     return null;
   };
 

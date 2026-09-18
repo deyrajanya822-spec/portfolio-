@@ -20,8 +20,10 @@ export const SydneyNavbar: React.FC<SydneyNavbarProps> = ({ onOpenContact }) => 
 
   const navLinks = [
     { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Case Studies', href: '#case-studies' },
+    { label: 'Internship Work', href: '#experience' },
+    { label: 'Projects & Capstones', href: '#projects' },
+    { label: 'Achievements', href: '#achievements' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Contact', href: '#contact' }
   ];
 
@@ -43,7 +45,7 @@ export const SydneyNavbar: React.FC<SydneyNavbarProps> = ({ onOpenContact }) => 
             Rajanya Dey
           </span>
           <span className="hidden sm:inline-block text-xs uppercase tracking-widest text-[#7D756C] font-mono border-l border-[#D6CCC2] pl-2.5">
-            Portfolio
+            Strategy &amp; Business
           </span>
         </a>
 

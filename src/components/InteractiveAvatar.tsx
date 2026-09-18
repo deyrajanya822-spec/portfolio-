@@ -71,7 +71,7 @@ export const InteractiveAvatar: React.FC<InteractiveAvatarProps> = ({ onInteract
     const phrases = [
       "Hi! I'm Rajanya — let's build bold brand narratives! 💡",
       "Cut iteration cycles & uncover white spaces 📈",
-      "PGDM @ Great Lakes Gurgaon | McKinsey Forward Fellow 🎓",
+      "Management & Strategy Specialist | McKinsey Forward Program Participant 🎓",
       "Story-driven TVC scripts + AI campaign prototyping ✨",
       "Need a brand strategist? Click 'Contact Me' below! ✉️"
     ];

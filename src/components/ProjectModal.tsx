@@ -146,7 +146,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </div>
               )}
 
-              {/* Strategic Framework / Case Study */}
+              {/* Strategic Framework / Project Deliverable */}
               {project.strategicFramework && (
                 <div className="space-y-6 pt-2">
                   <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-4">

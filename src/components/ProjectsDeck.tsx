@@ -34,7 +34,7 @@ export const ProjectsDeck: React.FC<ProjectsDeckProps> = ({ onOpenProjectModal }
 
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono text-zinc-400">
-              CLICK CARDS TO SWITCH • {PROJECTS_DATA.length} CASE STUDIES
+              CLICK CARDS TO SWITCH • {PROJECTS_DATA.length} PROJECTS
             </span>
           </div>
         </div>

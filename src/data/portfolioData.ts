@@ -33,20 +33,20 @@ export const CLIENT_LOGOS: ClientLogo[] = [
   },
   {
     id: '2',
-    name: 'Great Lakes Gurgaon',
-    role: 'PGDM & Alumni Leadership',
+    name: 'Alumni Committee',
+    role: 'Institutional Leadership',
     svgIcon: 'greatlakes'
   },
   {
     id: '3',
     name: 'McKinsey & Company',
-    role: 'McKinsey Forward Fellow',
+    role: 'McKinsey Forward Program Participant',
     svgIcon: 'mckinsey'
   },
   {
     id: '4',
-    name: 'IMS Coaching',
-    role: 'Marketing & Field Outreach',
+    name: 'IMS Coaching Institute',
+    role: 'Marketing Intern',
     svgIcon: 'ims'
   },
   {
@@ -330,7 +330,7 @@ export const STRATEGIC_STUDIES: StrategicStudy[] = [
     colorScheme: 'Empirical Research, Grounded Theory & SPSS Moderated Regression',
     impactMetric: 'r = .804 (p < .001) • α = .872 • R² = .410',
     likes: 1040,
-    client: 'Great Lakes Institute of Management (GLIM PGDM Consumer Behaviour Study)',
+    client: 'Empirical Consumer Behaviour Research Study',
     role: 'Lead Empirical Researcher & Mixed-Methods Data Analyst',
     liveUrl: 'https://docs.google.com/spreadsheets',
     externalLinks: [
@@ -381,7 +381,7 @@ export const STRATEGIC_STUDIES: StrategicStudy[] = [
       { tool: 'Braun & Clarke Qualitative Survey', purpose: 'Hybrid exploratory open-ended qualitative inquiry integrated with structured quantitative scale items' }
     ],
     keyHighlightsTable: [
-      { area: 'Academic Institution', detail: 'Great Lakes Institute of Management (GLIM Gurgaon) • PGDM Consumer Behaviour' },
+      { area: 'Academic Discipline', detail: 'Empirical Consumer Behaviour Research' },
       { area: 'Qualitative Depth', detail: '10 in-depth primary interviews (P01–P10) across mechanical keyboards, running shoes, fashion, & furniture' },
       { area: 'Highest Reliability Scale', detail: 'Reversibility Scale (REV1–REV3): Cronbach α = .872 (3 items, variance 9.352)' },
       { area: 'Strongest Empirical Link', detail: 'Issue Tolerability <---> Information Sufficiency: r = .804 (p < .001, highly significant)' },
@@ -492,7 +492,7 @@ export const PROJECTS_DATA: Project[] = [
     year: '2025',
     role: 'Brand Strategist & AI Creative Director • Summer Internship (Storyboats)',
     description: 'Developed brand positioning for High 5 countline, mapped confectionery category whitespaces, and engineered a 17-page Seedance 2.0 AI video production brief.',
-    longDescription: 'Over an 8-week summer internship at Storyboats (Gurgaon) for Lotus Chocolate (Hyderabad), spearheaded brand positioning strategy for their flagship ₹10 countline product "High 5" and engineered a production-ready 38-second AI ad film brief using Seedance 2.0 for the campaign "Some Fights End Better" / "Take Your Victory Higher". Solved AI cross-session character drift, created "THE HAND" visual throughline, and mapped whitespace across 10 FMCG benchmark brands.',
+    longDescription: 'Over an 8-week summer internship at Storyboats for Lotus Chocolate (Hyderabad), spearheaded brand positioning strategy for their flagship ₹10 countline product "High 5" and engineered a production-ready 38-second AI ad film brief using Seedance 2.0 for the campaign "Some Fights End Better" / "Take Your Victory Higher". Solved AI cross-session character drift, created "THE HAND" visual throughline, and mapped whitespace across 10 FMCG benchmark brands.',
     scopeOfWork: [
       {
         title: 'Category Whitespace Audit & Socratic Inquiry',
@@ -534,7 +534,7 @@ export const PROJECTS_DATA: Project[] = [
       { tool: 'Audio Architecture', purpose: 'Diegetic silence in conflict -> single acoustic chord entry -> warm resolution' }
     ],
     keyHighlightsTable: [
-      { area: 'Client & Agency', detail: 'Lotus Chocolate (Hyderabad) via Storyboats (Gurgaon)' },
+      { area: 'Client & Agency', detail: 'Lotus Chocolate (Hyderabad) via Storyboats' },
       { area: 'Market Context', detail: '₹17,761 Cr Indian chocolate market (10% CAGR) with 81% Mondelez/Nestlé duopoly' },
       { area: 'Campaign Tagline', detail: '"Some fights end better." / "Take your victory higher. Lotus High 5"' },
       { area: 'AI Engine', detail: 'Seedance 2.0 (I2V + T2V Prompts, Kodak 5219 grain, Teal-Orange Grade)' },
@@ -651,7 +651,7 @@ export const PROJECTS_DATA: Project[] = [
     title: '360° Field Surveys, Prospect Outreach & High-ROI Event Execution',
     category: 'Field Research & Lead Generation',
     year: '2024',
-    role: 'Field Researcher & Marketing Coordinator',
+    role: 'Marketing Intern',
     description: 'Conducted 30+ field surveys, engaged 65+ prospects with 75% qualification rate, and led an awareness event that boosted enrollment pipelines.',
     longDescription: 'Spearheaded comprehensive on-ground marketing research at IMS Coaching Institute. Interviewed 30+ prospects to evaluate promotional effectiveness, delivering high-value insights that drove an 70-80% conversion rate. Executed targeted outdoor outreach across 65+ high-intent prospects and organized an institute awareness event that reinforced brand recall across the region.',
     deliverables: [
@@ -712,9 +712,9 @@ export const PROJECTS_DATA: Project[] = [
 
 export const EDUCATION_DATA: EducationItem[] = [
   {
-    degree: 'PGDM (Post Graduate Diploma in Management)',
-    institute: 'Great Lakes Institute of Management',
-    city: 'Gurgaon',
+    degree: 'Post Graduate Diploma in Management (PGDM)',
+    institute: 'Management Institute',
+    city: 'India',
     score: 'CGPA 2.72 / 4.0',
     year: '2025 – 2027'
   },
@@ -750,7 +750,7 @@ export const ACHIEVEMENTS_DATA: AchievementItem[] = [
     desc: 'Secured 2nd rank nationwide in high-intensity micro-writing and narrative strategy competition organized by IIM Calcutta.'
   },
   {
-    title: 'The McKinsey Forward Program Fellow',
+    title: 'McKinsey Forward Program Participant',
     organizer: 'McKinsey & Company',
     year: '2025',
     badge: '10-Week Selective Program',
@@ -758,14 +758,14 @@ export const ACHIEVEMENTS_DATA: AchievementItem[] = [
   },
   {
     title: 'Core Member, Alumni-Committee',
-    organizer: 'Great Lakes Institute of Management, Gurgaon',
+    organizer: 'Alumni Committee',
     year: '2026',
     badge: 'Leadership Role',
-    desc: 'Leading institutional alumni engagement, network programming, and mentorship initiatives for GLIM Gurgaon.'
+    desc: 'Leading institutional alumni engagement, network programming, and mentorship initiatives.'
   },
   {
     title: 'Flagship Event Curation - Crest 2025',
-    organizer: 'Great Lakes Institute of Management',
+    organizer: 'Annual Management Festival',
     year: '2025',
     badge: 'Industry Relations',
     desc: 'Sourced, vetted, and coordinated distinguished alumni industry leaders and C-suite judges for the annual management festival Crest.'

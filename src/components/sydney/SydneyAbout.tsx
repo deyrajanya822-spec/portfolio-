@@ -1,18 +1,64 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { WavyLines } from './WavyLines';
-import { Sparkles, Target, Lightbulb, Compass } from 'lucide-react';
+import { Sparkles, Search, Compass, BarChart3, Globe } from 'lucide-react';
 import { SYDNEY_PROFILE } from '../../data/sydneyData';
 
 export const SydneyAbout: React.FC = () => {
+  const COMPETENCY_CARDS = [
+    {
+      id: 'comp-1',
+      icon: Search,
+      title: 'Research & Business Analysis',
+      subtitle: 'Rigorous Primary & Secondary Inquiry',
+      bullets: [
+        'Competitive benchmarking (25+ FMCG & automotive brands)',
+        'Primary consumer surveys (30+ in-depth interviews)',
+        'Qualitative field research across 9 Indian cities',
+        'Data-driven scorecards & multi-factor whitespace analysis',
+        'As-Is vs. To-Be strategic problem diagnosis'
+      ],
+      tag: 'Qualitative & Quantitative'
+    },
+    {
+      id: 'comp-2',
+      icon: Compass,
+      title: 'Strategy & Go-to-Market',
+      subtitle: 'Commercial Strategy & Channel Design',
+      bullets: [
+        'GTM campaign architecture (₹7.8M multi-tier pitch)',
+        'Omnichannel distribution & channel performance design',
+        'Multi-tier influencer marketing architecture (Macro & Micro)',
+        'Physical retail POS & point-of-sale display engineering',
+        'Brand positioning & consumer perception shift strategy'
+      ],
+      tag: 'GTM & Commercial Impact'
+    },
+    {
+      id: 'comp-3',
+      icon: BarChart3,
+      title: 'Analytics & Digital Tools',
+      subtitle: 'Telemetry, KPIs & Decision Architecture',
+      bullets: [
+        'GA4, GTM & Google Search Console end-to-end setup',
+        'KPI dashboard architecture across 5 SBUs & 7 channels',
+        'Simultaneous ROAS & CPA efficiency tracking systems',
+        'SPSS regression modeling & statistical validation',
+        '100/100 PageSpeed & technical SEO auditing'
+      ],
+      tag: 'Decision-Support Systems'
+    }
+  ];
+
   return (
     <section id="about" className="relative py-24 bg-[#FAF7F2] overflow-hidden border-t border-[#E8DFD5]/70">
       {/* Background organic ribbon curves */}
       <WavyLines variant="about" className="bottom-0 right-0 w-[80%] h-[80%] opacity-80" />
 
-      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10 space-y-16">
+        {/* Top: Introduction & Philosophy */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Introduction & Philosophy */}
+          {/* Left: Introduction */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -20,64 +66,25 @@ export const SydneyAbout: React.FC = () => {
             transition={{ duration: 0.7 }}
             className="lg:col-span-8 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7A141D]/10 text-[#7A141D] text-xs font-mono tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7A141D]/10 text-[#7A141D] text-xs font-mono tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Executive Profile &amp; Background</span>
+              <span>About Me &amp; Philosophy</span>
             </div>
 
             <h2 className="text-4xl sm:text-6xl font-serif text-[#1F1D1A] font-normal tracking-tight">
-              Hi, I'm <span className="italic text-[#7A141D] font-medium">Rajanya!</span>
+              Hi, I'm <span className="italic text-[#7A141D] font-medium">{SYDNEY_PROFILE.name.split(' ')[0]}!</span>
             </h2>
 
             <p className="text-xl sm:text-2xl font-serif text-[#2D2823] leading-relaxed font-normal">
-              A business-oriented management professional skilled in{' '}
-              <strong className="font-semibold text-[#7A141D] underline decoration-[#7A141D]/30 underline-offset-4">
-                market research
-              </strong>
-              ,{' '}
-              <strong className="font-semibold text-[#7A141D] underline decoration-[#7A141D]/30 underline-offset-4">
-                brand strategy
-              </strong>
-              , and{' '}
-              <strong className="font-semibold text-[#7A141D] underline decoration-[#7A141D]/30 underline-offset-4">
-                cross-functional collaboration
-              </strong>
-              , with proven expertise in guiding teams and driving data-driven organizational outcomes.
+              I’m curious, I ask a lot of questions, and I like figuring things out. I enjoy understanding people, exploring ideas, solving problems, and finding ways to make things better. I have a creative side, an analytical side, and I’m still figuring out how to make both work together.
             </p>
 
             <p className="text-base sm:text-lg text-[#554D45] leading-relaxed font-sans">
-              Currently pursuing my <strong className="font-semibold text-[#7A141D]">PGDM at Great Lakes Institute of Management (Gurgaon)</strong>, following a <strong className="font-semibold text-[#7A141D]">BBA from MSU Baroda</strong>. As a selective <strong className="font-semibold text-[#7A141D]">McKinsey Forward Scholar</strong>, I combine structured hypothesis-driven problem solving with agile execution to evaluate competitive landscapes and craft high-converting go-to-market strategies.
+              Curious mind. Creative streak. Always figuring it out.
             </p>
-
-            {/* Core Competencies from Resume */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              <div className="p-4 rounded-2xl bg-[#F0EAE1]/70 border border-[#E0D5C7]">
-                <div className="w-8 h-8 rounded-full bg-[#7A141D] text-white flex items-center justify-center mb-3">
-                  <Target className="w-4 h-4" />
-                </div>
-                <h4 className="font-serif font-bold text-[#1F1D1A] text-base mb-1">Market Intelligence</h4>
-                <p className="text-xs text-[#6B635A]">25+ competitor audits, category whitespace discovery &amp; qualitative consumer surveys.</p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#F0EAE1]/70 border border-[#E0D5C7]">
-                <div className="w-8 h-8 rounded-full bg-[#7A141D] text-white flex items-center justify-center mb-3">
-                  <Lightbulb className="w-4 h-4" />
-                </div>
-                <h4 className="font-serif font-bold text-[#1F1D1A] text-base mb-1">Brand &amp; GTM Strategy</h4>
-                <p className="text-xs text-[#6B635A]">Delivered 7+ startup brand narratives, POS merchandise &amp; campaign frameworks.</p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#F0EAE1]/70 border border-[#E0D5C7]">
-                <div className="w-8 h-8 rounded-full bg-[#7A141D] text-white flex items-center justify-center mb-3">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <h4 className="font-serif font-bold text-[#1F1D1A] text-base mb-1">Problem Solving &amp; Leadership</h4>
-                <p className="text-xs text-[#6B635A]">McKinsey Forward accelerator, team leadership &amp; 70% counseling conversion at IMS.</p>
-              </div>
-            </div>
           </motion.div>
 
-          {/* Right: Monogram Emblem with Crimson Contour */}
+          {/* Right: Monogram / Portrait Emblem with Crimson Contour */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -89,26 +96,12 @@ export const SydneyAbout: React.FC = () => {
               {/* Outer decorative contour ring */}
               <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full border-2 border-dashed border-[#7A141D] p-3 animate-spin-slow">
                 <div className="w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-[#FAF7F2] bg-gradient-to-br from-[#7A141D] to-[#4A0A10] flex flex-col items-center justify-center text-white p-6 text-center">
-                  {SYDNEY_PROFILE.profilePhoto ? (
-                    <img
-                      src={SYDNEY_PROFILE.profilePhoto}
-                      alt="Rajanya Dey"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <>
-                      <span className="font-serif italic text-6xl sm:text-7xl font-bold tracking-tight text-[#FAF7F2]">
-                        RD
-                      </span>
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#E8DFD5] mt-2">
-                        Rajanya Dey
-                      </span>
-                      <span className="text-[11px] font-mono text-[#FAF7F2]/75 mt-1">
-                        GLIM Gurgaon • PGDM '27
-                      </span>
-                    </>
-                  )}
+                  <img
+                    src={SYDNEY_PROFILE.profilePhoto || SYDNEY_PROFILE.heroImages.portraitGreen}
+                    alt={SYDNEY_PROFILE.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -119,6 +112,66 @@ export const SydneyAbout: React.FC = () => {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Bottom: 3 Updated Core Competency Cards (Change 7) */}
+        <div className="space-y-6 pt-4">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#7A141D] font-semibold">
+              Core Competencies
+            </span>
+            <h3 className="text-3xl sm:text-4xl font-serif text-[#1F1D1A]">
+              Balanced Across Research, Strategy &amp; Analytics
+            </h3>
+            <p className="text-sm font-sans text-[#7D756C]">
+              Engineered for strategic consulting, marketing leadership, analytics, and general management roles.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {COMPETENCY_CARDS.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={card.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="p-7 sm:p-8 rounded-[2rem] bg-white border border-[#E0D5C7] shadow-sm hover:shadow-md hover:border-[#7A141D]/30 transition-all flex flex-col justify-between space-y-6"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-2xl bg-[#7A141D]/10 text-[#7A141D] flex items-center justify-center">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-[#FAF7F2] border border-[#E0D5C7] text-[10px] font-mono text-[#7A141D] font-semibold uppercase">
+                        {card.tag}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-serif font-bold text-[#1F1D1A]">
+                        {card.title}
+                      </h4>
+                      <p className="text-xs font-mono text-[#7D756C] mt-1">
+                        {card.subtitle}
+                      </p>
+                    </div>
+
+                    <ul className="space-y-2.5 pt-2 text-xs font-sans text-[#5C554D] leading-relaxed">
+                      {card.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#7A141D] shrink-0 mt-1.5" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

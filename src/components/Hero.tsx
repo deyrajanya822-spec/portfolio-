@@ -60,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               <div className="mt-3 flex flex-col gap-1.5 text-xs font-mono text-zinc-400">
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
-                  <span className="text-zinc-300 font-semibold">PGDM CANDIDATE @ GREAT LAKES GURGAON</span>
+                  <span className="text-zinc-300 font-semibold">MARKET RESEARCH &amp; BRAND STRATEGIST</span>
                 </div>
                 <span className="text-[11px] text-zinc-400">BRAND STRATEGY • MARKET RESEARCH • CAMPAIGN DIRECTION</span>
               </div>

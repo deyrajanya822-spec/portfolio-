@@ -87,9 +87,9 @@ export const AdFilmPlayer: React.FC = () => {
     let active = true;
 
     async function checkVideo() {
-      // 1. First check server endpoint
+      // 1. First check server endpoint with lotus id
       try {
-        const res = await fetch('/api/video-status');
+        const res = await fetch('/api/video-status?id=lotus');
         if (res.ok) {
           const data = await res.json();
           if (data.exists && data.url) {
@@ -115,7 +115,7 @@ export const AdFilmPlayer: React.FC = () => {
 
         // Background sync to server if needed
         try {
-          fetch('/api/upload-video', {
+          fetch('/api/upload-video?id=lotus&filename=lotus-high5-commercial.mp4', {
             method: 'POST',
             body: blob,
           }).catch(() => {});
@@ -152,26 +152,39 @@ export const AdFilmPlayer: React.FC = () => {
       // 1. Save to local IndexedDB
       await saveVideoBlob(file);
 
-      // 2. Upload to Server so all users / sessions see it permanently
-      const res = await fetch('/api/upload-video', {
-        method: 'POST',
-        headers: {
-          'Content-Type': file.type || 'video/mp4',
-        },
-        body: file,
-      });
+      // 2. Upload to Server using chunked upload for full reliability with large video files
+      const CHUNK_SIZE = 4 * 1024 * 1024; // 4MB chunks
+      const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+      let uploadedServerUrl = '';
 
-      if (res.ok) {
-        const data = await res.json();
-        if (data.url) {
-          setVideoUrl(data.url);
+      for (let i = 0; i < totalChunks; i++) {
+        const start = i * CHUNK_SIZE;
+        const end = Math.min(file.size, start + CHUNK_SIZE);
+        const chunk = file.slice(start, end);
+        setSyncStatus(`Saving to server: ${Math.round(((i + 1) / totalChunks) * 100)}%...`);
+
+        const res = await fetch(
+          `/api/upload-video-chunk?chunkIndex=${i}&totalChunks=${totalChunks}&id=lotus&filename=lotus-high5-commercial.mp4`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/octet-stream' },
+            body: chunk,
+          }
+        );
+
+        if (res.ok) {
+          const d = await res.json();
+          if (d.isComplete && d.url) {
+            uploadedServerUrl = d.url;
+          }
         }
-        setIsSavedPermanently(true);
-        setSyncStatus('Permanently Saved on Server');
-      } else {
-        setIsSavedPermanently(true);
-        setSyncStatus('Saved in Permanent Browser Storage');
       }
+
+      if (uploadedServerUrl) {
+        setVideoUrl(uploadedServerUrl);
+      }
+      setIsSavedPermanently(true);
+      setSyncStatus('Permanently Saved on Server');
     } catch (err) {
       console.error('Upload sync notice:', err);
       setIsSavedPermanently(true);
